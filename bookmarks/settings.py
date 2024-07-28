@@ -50,6 +50,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+]
+
 ROOT_URLCONF = 'bookmarks.urls'
 
 TEMPLATES = [
@@ -134,10 +140,12 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+from ton import *
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'rizamatmu@gmail.com'
-EMAIL_HOST_PASSWORD = 'yljc xpvb gdfg fjfr'
+EMAIL_HOST_USER = email_host_user
+EMAIL_HOST_PASSWORD = email_host_password
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
