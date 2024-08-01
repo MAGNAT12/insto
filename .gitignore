@@ -1,2 +1,4 @@
 venv
 ton.py
+cert.cert
+cert.key

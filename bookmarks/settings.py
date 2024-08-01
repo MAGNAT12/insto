@@ -25,13 +25,15 @@ SECRET_KEY = 'django-insecure-h9z_*_31e#wlsqzyq+v*rx_a2nro#jgsq+s5fh2z$qzj^f8g55
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'account.apps.AccountConfig',
+    'social_django',
+    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,6 +56,8 @@ MIDDLEWARE = [
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+    'social_core.backends.twitter.TwitterOAuth',
+
 ]
 
 ROOT_URLCONF = 'bookmarks.urls'
@@ -140,7 +144,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-from ton import *
+from .ton import *
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -152,3 +156,8 @@ EMAIL_USE_TLS = True
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+SOCIAL_AUTH_TWITTER_KEY = api_key_Twitter
+SOCIAL_AUTH_TWITTER_SECRET = api_key_secre_Twitter
+SOCIAL_AUTH_TWITTER_BEARER_TOKEN = bearer_token
+
+# python manage.py runserver_plus --cert-file cert.crt
