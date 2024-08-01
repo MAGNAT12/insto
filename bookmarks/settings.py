@@ -57,6 +57,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
     'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.google.GoogleOAuth2',
 
 ]
 
@@ -156,8 +157,12 @@ EMAIL_USE_TLS = True
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+
 SOCIAL_AUTH_TWITTER_KEY = api_key_Twitter
 SOCIAL_AUTH_TWITTER_SECRET = api_key_secre_Twitter
-SOCIAL_AUTH_TWITTER_BEARER_TOKEN = bearer_token
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = api_key_Google
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = api_key_secre_Google
+
 
 # python manage.py runserver_plus --cert-file cert.crt
