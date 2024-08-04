@@ -27,9 +27,7 @@ def user_login(request):
 
 @login_required
 def dashboard(request):
-    return render(request,
-        'account/dashboard.html',
-        {'section': 'dashboard'})
+    return render(request, 'account/dashboard.html', {'section': 'dashboard'})
 
 
 # login: test
